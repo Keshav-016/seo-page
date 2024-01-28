@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;500;600&family=Work+Sans:wght@400;600;700&display=swap");
+
+$button-color: #fad725;
+$heading-blue-color: #6f77f1;
+$content-color: #828282;
+$main-heading-font: Inter;
+$content-font: Poppins;
+$benefits-section-color: #666565;
+$heading-color: #212528;
+$content-color: #727272;
+
+@mixin font-style($name, $weight, $size, $color) {
+  .#{$name} {
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+  }
+}
+@mixin dot-design($name,$color,$width,$height){
+  .#{$name}{
+    background-color: $color;
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+  }
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: poppins, sans-serif;
+}
+body{
+  font-size: 65%
+}
+
+// nav section start
+
+@include font-style(navbar-logo, 500, 30px, $heading-color);
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #bc424e;
+  border-radius: 100%;
+  margin: 20px 0 0 2px;
+}
+
+.nav-search {
+  outline: none;
+  border-color: $heading-color;
+  color: $heading-color;
+  width: 150px;
+}
+
+// hero section start
+
+@include font-style(hero-title, 700, min(7vw, 2.5rem), $heading-color);
+@include font-style(hero-content, 400, min(3.3vw, 1.1rem), $content-color);
+@include font-style(tilt-text, 600, min(5vw, 1.8rem), $heading-blue-color);
+.tilt-text {
+  border: 2px solid $heading-blue-color;
+  display: inline-block;
+  transform: rotate(-8.234deg);
+}
+.girl-image {
+  width: 100%;
+}
+
+// management section start
+
+@include font-style(management-title, 400, min(6vw, 2rem), $heading-color);
+@include font-style(management-content, 400, min(3.2vw, 1rem), $heading-color);
+
+// optimization section start
+.optimisation-card {
+  background: #fff;
+  box-shadow: 0px 10px 14px 2px rgba(14, 17, 60, 0.03);
+}
+
+//stats  section start
+@include font-style(stats-heading,600 ,10vw ,$benefits-section-color );
+@include dot-design(red-dot,#D1563B ,10px ,10px );
+@include dot-design(green-dot,#3BD165 ,10px ,10px );
+@include dot-design(yellow-dot,#F7C745 ,10px ,10px );
+
+// form section start
+.subscribe-button{
+  background-color: #6F77F1!important;
+  color: white !important;
+
+}
+
+// bottom section start
+@include font-style(bottom-items,400,16px , #212528);
+
+// footer section start
+@include font-style(footer-text,400 ,10px ,$content-color );
+
+// ------------------------generic class---------------------------
+@include font-style(sub-heading, 500, calc(1.325rem + 0.9vw), $heading-color);
+@include font-style(content, 400, min(4.5vw, 0.9rem), $content-color);
+@include font-style(card-title, 500, calc(1.275rem + 0.3vw), $heading-color);
+
+.button-color {
+  background-color: $button-color !important;
+}
+.subheading {
+  font-size: 50px;
+}
+.blue-text {
+    color: $heading-blue-color !important;
+  }
+
+// --------------------for tablet screen---------------------------
+
+@media (min-width: 768px) {
+  // hero section start
+
+  .hero-title {
+    font-size: min(4vw, 1.9rem);
+  }
+  .tilt-text {
+    font-size: min(2.5vw, 1.3rem);
+  }
+  .hero-content {
+    font-size: min(1.8vw, 0.6rem);
+  }
+
+  // management section start
+  .management-title {
+    font-size: min(2vw, 1rem);
+  }
+  .management-content {
+    font-size: min(3.2vw, 0.54rem);
+  }
+
+  // stats section start
+
+  .stats-heading{
+    font-size: min(8vw,3rem);
+  }
+
+}
+
+// --------------------for laptop screen---------------------------
+
+@media (min-width: 992px) {
+  // hero section start
+
+  .hero-title {
+    font-size: 4vw;
+  }
+  .tilt-text {
+    font-size: min(2.6vw, 2rem);
+  }
+  .hero-content {
+    font-size: min(1.8vw, 1rem);
+  }
+
+  // management section start
+
+  .management-title {
+    font-size: min(2.2vw, 2rem);
+  }
+  .management-content {
+    font-size: min(1vw, 0.9rem);
+  }
+}
+
+// ---------------------------------------------------------------
