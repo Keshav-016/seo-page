@@ -16,8 +16,8 @@ $content-color: #727272;
     color: $color;
   }
 }
-@mixin dot-design($name,$color,$width,$height){
-  .#{$name}{
+@mixin dot-design($name, $color, $width, $height) {
+  .#{$name} {
     background-color: $color;
     width: $width;
     height: $height;
@@ -31,11 +31,29 @@ $content-color: #727272;
   box-sizing: border-box;
   font-family: poppins, sans-serif;
 }
-body{
+body {
   font-size: 65%;
 }
-input{
+input {
   outline: none;
+}
+
+// ------------------------generic class---------------------------
+@include font-style(sub-heading, 500, calc(1.325rem + 0.9vw), $heading-color);
+@include font-style(content, 400, min(4.5vw, 0.9rem), $content-color);
+@include font-style(card-title, 500, calc(1.275rem + 0.3vw), $heading-color);
+
+.button-color {
+  background-color: $button-color !important;
+}
+.subheading {
+  font-size: 50px;
+}
+.blue-text {
+  color: $heading-blue-color !important;
+}
+.void-size {
+  margin-top: 100px !important;
 }
 
 // nav section start
@@ -55,6 +73,23 @@ input{
   color: $heading-color;
   width: 150px;
 }
+.nav-link {
+  position: relative;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(
+    to right,
+    rgba(111, 119, 241, 1),
+    rgba(111, 119, 241, 1) 70%,
+    white 70%,
+    white 80%,
+    rgba(111, 119, 241, 1) 80%,
+    rgba(111, 119, 241, 1)
+  );
+  border-image-slice: 1;
+}
 
 // hero section start
 
@@ -69,6 +104,11 @@ input{
 .girl-image {
   width: 100%;
 }
+.creative-team {
+  width: 225px;
+  bottom: 30px;
+  left: -80px;
+}
 
 // management section start
 
@@ -76,53 +116,115 @@ input{
 @include font-style(management-content, 400, min(3.2vw, 1rem), $heading-color);
 
 // optimization section start
+#research-card {
+  background: url(images/optimisation/1.svg) no-repeat center;
+}
+#content-card {
+  background: url("./images/optimisation/2.svg") no-repeat center;
+}
+#target-card {
+  background: url("./images/optimisation/3.svg") no-repeat center;
+}
+#testing-card {
+  background: url("./images/optimisation/4.svg") no-repeat center;
+}
 .optimisation-card {
-  background: #fff;
-  box-shadow: 0px 10px 14px 2px rgba(14, 17, 60, 0.03);
+  &:hover {
+    box-shadow: 0px 10px 14px 2px rgba(14, 17, 60, 0.03);
+    background-color: white !important;
+    border-bottom: 2px solid $heading-blue-color;
+    cursor: pointer;
+  }
+}
+.optimisation-circle {
+  width: 30vw;
+  right: 0;
+  bottom: -5px;
+}
+
+// business section start
+
+.business-card {
+  transition: all 200ms ease-in-out;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 34px 50px -17px rgba(2, 22, 5, 0.1);
+  }
 }
 
 // chooser section start
-.chooser-content{
-  max-width: 780px
+.chooser-content {
+  max-width: 780px;
+  transition: transform 300ms ease-in-out;
+}
+.chooser-card {
+  transition: transform 500ms ease-in-out;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 34px 50px -17px rgba(2, 22, 5, 0.1);
+    transform: scale(1.03);
+  }
 }
 
+// needs section start
+
+.needs-card:hover {
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 5px 25px 37px 0px rgba(2, 22, 5, 0.06);
+}
 
 //stats  section start
-@include font-style(stats-heading,600 ,10vw ,$benefits-section-color );
-@include dot-design(red-dot,#D1563B ,10px ,10px );
-@include dot-design(green-dot,#3BD165 ,10px ,10px );
-@include dot-design(yellow-dot,#F7C745 ,10px ,10px );
+@include font-style(stats-heading, 600, 10vw, $benefits-section-color);
+@include dot-design(red-dot, #d1563b, 10px, 10px);
+@include dot-design(green-dot, #3bd165, 10px, 10px);
+@include dot-design(yellow-dot, #f7c745, 10px, 10px);
+
+// plans section start
+.plan-card {
+  transition: transform 300ms ease-in-out;
+}
+
+.plan-card:hover {
+  cursor: pointer;
+  background: url(./images/plans/blue-bg.svg) no-repeat center;
+  background-size: stretch;
+  span,
+  button {
+    color: white !important;
+  }
+  button:hover {
+    background-color: $button-color;
+    color: black !important;
+  }
+  transform: scale(1.05);
+}
+
+// client section start
+.client-data {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.client-card:hover {
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0px 34px 50px -17px rgba(2, 22, 5, 0.1);
+}
 
 // form section start
-.subscribe-button{
-  background-color: #6F77F1!important;
+.subscribe-button {
+  background-color: #6f77f1 !important;
   color: white !important;
-
 }
 
 // bottom section start
-@include font-style(bottom-items,400,16px , #212528);
+@include font-style(bottom-items, 400, 16px, #212528);
 
 // footer section start
-@include font-style(footer-text,400 ,10px ,$content-color );
-
-// ------------------------generic class---------------------------
-@include font-style(sub-heading, 500, calc(1.325rem + 0.9vw), $heading-color);
-@include font-style(content, 400, min(4.5vw, 0.9rem), $content-color);
-@include font-style(card-title, 500, calc(1.275rem + 0.3vw), $heading-color);
-
-.button-color {
-  background-color: $button-color !important;
-}
-.subheading {
-  font-size: 50px;
-}
-.blue-text {
-    color: $heading-blue-color !important;
-  }
-.void-size{
-  margin-top: 100px!important;
-}
+@include font-style(footer-text, 400, 10px, $content-color);
 
 // --------------------for tablet screen---------------------------
 
@@ -149,10 +251,9 @@ input{
 
   // stats section start
 
-  .stats-heading{
-    font-size: min(8vw,3rem);
+  .stats-heading {
+    font-size: min(8vw, 3rem);
   }
-
 }
 
 // --------------------for laptop screen---------------------------
